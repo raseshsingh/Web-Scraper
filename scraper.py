@@ -60,7 +60,7 @@ for image_element in image_elements:
         print(i, image_url)
         print('===================================================================')
         driver.execute_script('return window.stop')
-
+        driver.quit()
         break
     else:
 
@@ -68,4 +68,5 @@ for image_element in image_elements:
         image.save(result_folder + image_name + "." + image.format, image.format)
         print(i, image_name)
         i += 1
+print('=====TASK COMPLETED=====')
 driver.quit()
