@@ -23,15 +23,9 @@ driver.execute_script("window.scrollTo(0,10000);")
 # =================================================================================================
 
 add_script = """$("#content > div > div:nth-child(2) > div > div.flex_grid.credits.search_results > div:nth-child(13) > a > img").each(function() {
-  // first copy the attributes to remove
-  // if we don't do this it causes problems
-  // iterating over the array we're removing
-  // elements from
   var attributes = $.map(this.attributes, function(item) {
     return item.name;
   });
-
-  // now use jQuery to remove the attributes
   var img = $(this);
   $.each(attributes, function(i, item) {
     img.removeAttr(item);
@@ -63,7 +57,6 @@ for image_element in image_elements:
         driver.quit()
         break
     else:
-
         image = Image.open(BytesIO(image_object.content))
         image.save(result_folder + image_name + "." + image.format, image.format)
         print(i, image_name)
